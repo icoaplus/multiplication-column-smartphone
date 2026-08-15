@@ -166,60 +166,43 @@ body{display:flex;justify-content:center;align-items:stretch}
 .smartphone-app.mul3 .robot{width:34px}
 .smartphone-app.mul3 .bubble{font-size:10.5px;padding:4px 6px}
 
-
-/* ===== かけ算 スマホ横向き版（1画面・スクロールなし） ===== */
+/* ===== スマホ横向き専用：1画面レイアウト ===== */
 @media (orientation: landscape){
-  html,body{width:100%;height:100%;overflow:hidden;background:#eef1f6}
-  body{display:block}
-  .smartphone-app{max-width:none;width:100vw;height:100dvh;min-height:100vh;grid-template-rows:34px minmax(0,1fr)}
-  .toolbar{height:34px;justify-content:flex-end;gap:4px;padding:3px 6px;border-bottom:1px solid #dbe2ea}
-  .segment{gap:2px;padding:2px;border-radius:8px}
-  .segment button{font-size:11px;padding:4px 8px;border-radius:6px;white-space:nowrap}
-  .stage{padding:4px;overflow:hidden}
-  .panel{border-radius:14px;box-shadow:none}
-  .left{height:calc(100dvh - 42px);padding:5px 6px 6px;display:grid;grid-template-columns:minmax(0,58%) minmax(250px,42%);grid-template-rows:auto auto minmax(0,1fr) auto;grid-template-areas:"title title" "status status" "work side" "robot controls";gap:5px;overflow:hidden}
-  .title{grid-area:title;margin:0;font-size:18px;padding:4px;line-height:1.1}
-  .status{grid-area:status;margin:0 auto;font-size:13px;padding:3px 12px}
-  .work{grid-area:work;min-width:0;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 188px;gap:6px;align-items:start}
-  .calcwrap{padding:0;justify-content:flex-start;align-items:flex-start;min-width:0;overflow:hidden}
-  .calc{transform:scale(.62);transform-origin:top left;height:234px;overflow:visible}
-  .mobile-input-panel{width:188px;padding:4px 2px 0;align-self:start}
-  .side-title{font-size:15px;margin:0 0 4px}
-  .pickers{gap:5px;margin-bottom:5px}
-  .pick{padding:4px;border-radius:10px}
-  .picklabel{font-size:12px;margin-bottom:2px}
-  .stepper{grid-template-rows:26px 34px 26px;gap:2px}
-  .arrow{font-size:17px;border-radius:8px}
-  .input-shell{height:34px}
-  .input-display{border-radius:8px}
-  .input-display .di{width:21px;height:28px}
-  .input-display img{max-height:28px;max-width:21px}
-  .actions{gap:4px;margin-bottom:0}
-  .ok,.sample{padding:6px;font-size:14px;border-radius:9px}
-  .steps{grid-area:side;min-height:0;padding-top:0;overflow:hidden;display:block}
-  .step-row{display:none;grid-template-columns:27px minmax(0,1fr);gap:5px;align-items:start}
-  .step-row.active{display:grid}
-  .step-marker{width:24px;height:24px;font-size:17px;border-width:1.8px;margin-top:3px}
-  .card{padding:8px 9px;font-size:12px;line-height:1.22;border-radius:12px}
-  .card b{font-size:14px;margin-bottom:4px}
-  .mobile-controls{grid-area:controls;display:grid;grid-template-columns:1fr;gap:4px;align-self:end}
-  .buttons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
-  .stepbtn{padding:6px 2px;border-radius:10px;text-align:center;font-size:11px;line-height:1.1}
-  .nav-buttons{grid-template-columns:1fr 1fr;gap:4px;margin-top:0}
-  .navbtn{padding:6px 4px;font-size:13px;border-radius:9px}
-  .reset{margin-top:0;padding:6px 4px;font-size:13px;border-radius:9px}
-  #expToggle{display:none!important}
-  .robotarea{grid-area:robot;position:static;left:auto;bottom:auto;display:flex;align-items:flex-end;gap:6px;margin:0;align-self:end}
-  .robot{width:36px;height:auto}
-  .bubble{max-width:140px;padding:5px 8px;border-radius:14px;font-size:12px;line-height:1.18}
-  .bubble:after{left:-10px;bottom:10px;border-width:6px 10px 6px 0}
-  .bubble:before{left:-7px;bottom:11px;border-width:4px 8px 4px 0}
-  .note{display:none!important}
+  body{display:block;overflow:hidden}
+  .smartphone-app{width:100vw;max-width:none;height:100dvh;min-height:0;grid-template-rows:30px minmax(0,1fr)}
+  .toolbar{height:30px;justify-content:flex-end;padding:2px 8px;gap:4px}
+  .segment{padding:1px;gap:1px}.segment button{font-size:10px;padding:4px 7px}
+  .stage{height:100%;padding:4px;overflow:hidden}
+  .left{height:100%;padding:4px 6px 5px;position:relative}
+  .title{font-size:16px;padding:4px;margin:0 0 3px;line-height:1;border-width:2px}
+  .status{font-size:10px;padding:2px 9px;margin-bottom:2px;line-height:1.05}
+  .work{flex:1;min-height:0;display:grid;grid-template-columns:minmax(255px,1.08fr) minmax(180px,.72fr) minmax(300px,1.2fr);grid-template-areas:"calc input steps" "calc input controls";grid-template-rows:minmax(0,1fr) auto;gap:4px 7px;align-items:start;overflow:hidden}
+  .calcwrap{grid-area:calc;width:100%;height:100%;min-height:0;display:flex;justify-content:center;align-items:flex-start;overflow:hidden;padding:0}
+  .calc{transform:scale(.56);transform-origin:top center;height:378px;flex:0 0 auto;margin-top:0}
+  .mobile-input-panel{grid-area:input;height:auto;align-self:start;padding:4px;border-radius:9px}
+  .pickers{gap:3px;margin-bottom:3px}.pick{padding:3px}.picklabel{font-size:10px}
+  .stepper{grid-template-columns:22px minmax(48px,1fr) 22px!important;grid-template-rows:32px!important;gap:2px}.arrow{font-size:14px}.input-shell{height:32px}.input-display .di{width:16px;height:24px}.input-display img{max-height:23px;max-width:16px}
+  .ok,.sample{font-size:10px;padding:5px 2px}
+  .steps{grid-area:steps;display:flex;flex-direction:column;gap:2px;min-height:0;overflow:hidden;padding:0}
+  .step-row{grid-template-columns:23px minmax(0,1fr);gap:3px}.step-marker{width:21px;height:21px;font-size:13px;margin-top:1px;border-width:1.4px}
+  .card{font-size:9.6px;padding:3px 5px;line-height:1.05;border-radius:7px}.card b{font-size:11px;margin-bottom:0;line-height:1.02}.step-text{line-height:1.05}
+  .mobile-controls{grid-area:controls;display:grid;grid-template-columns:1fr;gap:2px;align-self:end}
+  .mobile-controls .buttons{grid-template-columns:repeat(5,minmax(0,1fr));gap:2px!important}
+  .mobile-controls .stepbtn{font-size:9px;padding:4px 1px;border-radius:6px;white-space:nowrap}
+  .mobile-controls .nav-buttons{gap:2px}.mobile-controls .navbtn{font-size:9.5px;padding:4px 2px;border-radius:6px}
+  .mobile-controls .reset,.mobile-controls #expToggle{font-size:9.5px;padding:4px 2px;border-radius:6px}
+  .robotarea{position:absolute;left:7px;bottom:5px;margin:0;z-index:20;gap:3px;pointer-events:none}.robot{width:28px}.bubble{max-width:125px;font-size:9px;padding:3px 5px;border-width:1.2px;border-radius:8px;line-height:1.05}.bubble:after{left:-7px;bottom:7px;border-width:4px 7px 4px 0}.bubble:before{left:-5px;bottom:8px;border-width:3px 6px 3px 0}
+  .smartphone-app.mul3 .card{font-size:9px;padding:2px 4px}.smartphone-app.mul3 .card b{font-size:10.5px}.smartphone-app.mul3 .step-row{grid-template-columns:22px minmax(0,1fr)}.smartphone-app.mul3 .step-marker{width:20px;height:20px;font-size:12px}.smartphone-app.mul3 .mobile-controls .stepbtn,.smartphone-app.mul3 .mobile-controls .navbtn,.smartphone-app.mul3 .mobile-controls .reset,.smartphone-app.mul3 .mobile-controls #expToggle{font-size:8.8px;padding:3px 1px}
 }
-@media (orientation: portrait){
-  .smartphone-app{max-width:430px}
+@media (orientation: landscape) and (max-height:300px){
+  .smartphone-app{grid-template-rows:26px minmax(0,1fr)}.toolbar{height:26px}.segment button{font-size:9px;padding:3px 6px}
+  .title{font-size:14px;padding:3px;margin-bottom:2px}.status{font-size:9px;padding:1px 7px;margin-bottom:1px}
+  .calc{transform:scale(.45)}
+  .work{grid-template-columns:minmax(235px,1.05fr) minmax(165px,.7fr) minmax(285px,1.25fr);gap:3px 5px}
+  .card{font-size:8.5px;padding:2px 4px}.card b{font-size:9.5px}.step-row{grid-template-columns:20px minmax(0,1fr);gap:2px}.step-marker{width:18px;height:18px;font-size:11px}
+  .mobile-controls .stepbtn,.mobile-controls .navbtn,.mobile-controls .reset,.mobile-controls #expToggle{font-size:8px;padding:3px 1px}
+  .robotarea{display:none}
 }
-
 </style></head>
 <body>
 <div class="app smartphone-app">
@@ -333,24 +316,8 @@ function drawArrow(placeA,placeMul){clearArrows();const fromX=xFor(placeMul),fro
 function hideCalc(){['p1','p2','p3','addCarryRow','rule2','ans'].forEach(id=>E(id).classList.add('hidden'));drawCarry([]);drawAddCarry([]);clearArrows()}
 function syncVisibility(){const n=state.bd.length;['1','2','3'].forEach((k,i)=>{E('step'+k).classList.toggle('none',i>=n);E('s'+k).classList.toggle('none',i>=n)});E('step4').classList.toggle('none',n<2);E('s4').classList.toggle('none',n<2)}
 function renderBase(){drawRow(E('rowA'),numberToRow(state.a));drawRow(E('rowB'),numberToRow(state.b));E('status').textContent=`${String(state.a).length}けた × ${String(state.b).length}けた`;E('addCarryRow').classList.toggle('three3', String(state.a).length===3 && String(state.b).length===3);document.querySelector('.smartphone-app').classList.toggle('mul3',state.bd.length===3);syncVisibility();setStepTexts();hideCalc();updateButtons()}
-
-function activeStepGroup(){
-  const a=state.anchors||{};
-  if(state.step>= (a.s5||Infinity)) return 5;
-  if(a.s4 && state.step>=a.s4) return 4;
-  if(state.bd && state.bd.length>=3 && a.s3 && state.step>=a.s3) return 3;
-  if(state.bd && state.bd.length>=2 && a.s2 && state.step>=a.s2) return 2;
-  return 1;
-}
-function syncStepPanel(){
-  ['step1','step2','step3','step4','step5'].forEach(id=>E(id).classList.remove('active'));
-  const g = state.step===0 ? 1 : activeStepGroup();
-  const el = E('step'+g);
-  if(el && !el.classList.contains('none')) el.classList.add('active');
-}
-
 function show(step){step=Math.max(0,Math.min(state.subs.length,step));state.step=step;hideCalc();if(step===0){E('note').textContent='';E('robotSpeech').innerHTML='右から じゅんに<br>かけよう！';updateButtons();return}const s=state.subs[step-1];if(s.kind==='mul'){for(let r=0;r<s.ri;r++){drawRow(E('p'+(r+1)),state.parts[r]);E('p'+(r+1)).classList.remove('hidden')}drawRow(E('p'+(s.ri+1)),s.row);E('p'+(s.ri+1)).classList.remove('hidden');drawCarry(s.marks);drawArrow(s.placeA,s.placeMul);E('note').textContent='';E('robotSpeech').innerHTML='赤いやじるしの 2つを<br>かけよう！'}else if(s.kind==='intermediate'){state.parts.forEach((r,i)=>{drawRow(E('p'+(i+1)),r);E('p'+(i+1)).classList.remove('hidden')});E('note').textContent='';E('robotSpeech').innerHTML='とちゅうの答えを<br>そろえて 見よう！'}else{state.parts.forEach((r,i)=>{drawRow(E('p'+(i+1)),r);E('p'+(i+1)).classList.remove('hidden')});if((s.marks||state.sumMarks||[]).length){drawAddCarry(s.marks||state.sumMarks||[]);E('addCarryRow').classList.remove('hidden')}E('rule2').classList.remove('hidden');drawRow(E('ans'),state.answer);E('ans').classList.remove('hidden');E('note').textContent='';E('robotSpeech').innerHTML='さいごに<br>全部 たそう！'}updateButtons()}
-function updateButtons(){['s1','s2','s3','s4','s5'].forEach(id=>E(id).classList.remove('active'));const a=state.anchors;if(state.step>0){let id='s1';if(state.step>=a.s5)id='s5';else if(a.s4&&state.step>=a.s4)id='s4';else if(state.bd.length>=3&&state.step>=a.s3)id='s3';else if(state.bd.length>=2&&state.step>=a.s2)id='s2';E(id).classList.add('active')}E('back').disabled=state.step===0;E('next').disabled=state.step===state.subs.length;syncStepPanel()}
+function updateButtons(){['s1','s2','s3','s4','s5'].forEach(id=>E(id).classList.remove('active'));const a=state.anchors;if(state.step>0){let id='s1';if(state.step>=a.s5)id='s5';else if(a.s4&&state.step>=a.s4)id='s4';else if(state.bd.length>=3&&state.step>=a.s3)id='s3';else if(state.bd.length>=2&&state.step>=a.s2)id='s2';E(id).classList.add('active')}E('back').disabled=state.step===0;E('next').disabled=state.step===state.subs.length}
 function apply(){const a=clamp(E('inputA').value),b=clamp(E('inputB').value);E('inputA').value=a;E('inputB').value=b;renderInputs();state=build(a,b);renderBase();show(0)}
 function change(id,d){E(id).value=clamp((parseInt(E(id).value)||1)+d);renderInputs()}
 E('aUp').onclick=()=>change('inputA',1);E('aDown').onclick=()=>change('inputA',-1);E('bUp').onclick=()=>change('inputB',1);E('bDown').onclick=()=>change('inputB',-1);E('ok').onclick=apply;E('sample').onclick=()=>{E('inputA').value=132;E('inputB').value=23;apply()};E('reset').onclick=()=>show(0);E('back').onclick=()=>show(state.step-1);E('next').onclick=()=>show(state.step+1);E('s1').onclick=()=>show(state.anchors.s1||1);E('s2').onclick=()=>show(state.anchors.s2||1);E('s3').onclick=()=>show(state.anchors.s3||1);E('s4').onclick=()=>show(state.anchors.s4||state.anchors.s5);E('s5').onclick=()=>show(state.anchors.s5);
